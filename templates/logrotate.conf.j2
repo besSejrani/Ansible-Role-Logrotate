@@ -1,0 +1,10 @@
+{{ LOGS_LOCATION }} {
+    daily                                                       # Rotate the log file every day
+    rotate 7                                                    # Keep 7 days of logs
+    compress                                                    # Compress (gzip) log files on rotation
+    delaycompress                                               # Delay compression until the next log rotation cycle
+    missingok                                                   # If the log file is missing, go on to the next one without issuing an error message
+    notifempty                                                  # Do not rotate the log if it is empty
+    create 640 {{ LOG_USER_AND_GROUP | replace(" ", " ") }}     # Create a new log file with set permissions/owner/group
+    su {{ LOG_USER_AND_GROUP | split(' ') | join(' ') }}        # Specify the owner and group for the log file
+}

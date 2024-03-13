@@ -1,0 +1,4 @@
+---
+LOGS_LOCATION: "/home/myuser/Server/Logs/production.log"
+LOG_DESTINATION: "/etc/logrotate.d/project"
+LOG_USER_AND_GROUP: "myuser mygroup"

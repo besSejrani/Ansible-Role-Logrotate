@@ -1,0 +1,11 @@
+---
+- name: Install
+  apt:
+    update_cache: yes
+    name: logrotate
+    state: present
+
+- name: Modify config file
+  template:
+    src: logrotate.conf.j2
+    dest: { { LOG_DESTINATION } }
